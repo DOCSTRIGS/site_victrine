@@ -1,85 +1,74 @@
 import { NavLink } from 'react-router-dom';
 
 function Navbar() {
-  const base =
-    'text-sm text-slate-700 hover:text-orange-600 transition';
-  const active = 'text-orange-600 font-medium';
+  const linkBase =
+    'text-sm text-slate-600 hover:text-sky-600 transition';
+  const linkActive = 'text-sky-700 font-semibold';
 
   return (
-    <header className="flex items-center justify-between border-b border-slate-200 bg-white/95 px-4 py-3 sticky top-0 z-20">
-      {/* Logo */}
-      <div className="flex items-center gap-2">
-        <div className="h-8 w-8 rounded-full bg-orange-500" />
-        <div className="flex flex-col leading-tight">
-          <span className="text-xs uppercase tracking-[0.22em] text-slate-500">
-            DevCore
-          </span>
-          <span className="text-[11px] text-slate-400">
-            Web Solutions
+    <header className="mt-0 mb-4 w-full bg-white border-b border-slate-200">
+      <div className="mx-auto max-w-6xl flex items-center justify-between px-6 py-3">
+        {/* Logo gauche */}
+        <div className="flex items-center gap-2">
+          <div className="h-8 w-8 bg-sky-500 rounded-full" />
+          <span className="text-sm font-semibold tracking-[0.18em] uppercase text-slate-800">
+            DEVCORE
           </span>
         </div>
-      </div>
 
-      {/* Menu */}
-      <nav className="hidden md:flex items-center gap-6">
-        <NavLink
-          to="/"
-          end
-          className={({ isActive }) =>
-            `${base} ${isActive ? active : ''}`
-          }
-        >
-          Accueil
-        </NavLink>
-        <NavLink
-          to="/services"
-          className={({ isActive }) =>
-            `${base} ${isActive ? active : ''}`
-          }
-        >
-          Services
-        </NavLink>
-        <NavLink
-          to="/forfaits"
-          className={({ isActive }) =>
-            `${base} ${isActive ? active : ''}`
-          }
-        >
-          Forfaits
-        </NavLink>
-        <NavLink
-          to="/apropos"
-          className={({ isActive }) =>
-            `${base} ${isActive ? active : ''}`
-          }
-        >
-          À propos
-        </NavLink>
+        {/* Menu centre */}
+        <nav className="hidden md:flex items-center gap-6">
+          <NavLink
+            to="/"
+            end
+            className={({ isActive }) =>
+              `${linkBase} ${isActive ? linkActive : ''}`
+            }
+          >
+            Accueil
+          </NavLink>
+          <NavLink
+            to="/services"
+            className={({ isActive }) =>
+              `${linkBase} ${isActive ? linkActive : ''}`
+            }
+          >
+            Services
+          </NavLink>
+          <NavLink
+            to="/apropos"
+            className={({ isActive }) =>
+              `${linkBase} ${isActive ? linkActive : ''}`
+            }
+          >
+            À propos
+          </NavLink>
+          <NavLink
+            to="/contact"
+            className={({ isActive }) =>
+              `${linkBase} ${isActive ? linkActive : ''}`
+            }
+          >
+            Contact
+          </NavLink>
+          <NavLink
+            to="/faq"
+            className={({ isActive }) =>
+              `${linkBase} ${isActive ? linkActive : ''}`
+            }
+          >
+            FAQ
+          </NavLink>
+        </nav>
+
+        {/* Bouton droite (carré, couleur claire) */}
         <NavLink
           to="/contact"
-          className={({ isActive }) =>
-            `${base} ${isActive ? active : ''}`
-          }
+          className="hidden md:inline-flex items-center rounded-md bg-sky-500 px-4 py-2 text-xs font-semibold text-white shadow-sm hover:bg-sky-600 transition"
         >
-          Contact
+          Discuter d&apos;un projet
         </NavLink>
-        <NavLink
-          to="/faq"
-          className={({ isActive }) =>
-            `${base} ${isActive ? active : ''}`
-          }
-        >
-          FAQ
-        </NavLink>
-      </nav>
-
-      {/* Bouton Commencer */}
-      <NavLink
-        to="/contact"
-        className="inline-flex items-center rounded-full bg-orange-600 px-4 py-2 text-sm font-semibold text-white shadow-sm hover:bg-orange-700 transition"
-      >
-        Commencer →
-      </NavLink>
+      </div>
     </header>
   );
 }
